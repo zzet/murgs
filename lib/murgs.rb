@@ -1,4 +1,5 @@
-require 'murgs/version.rb'
+require "murgs/version"
 
-# Add requires for other files you add to your project here, so
-# you just need to require this one file in your bin file
+module Murgs
+  # Your code goes here...
+end

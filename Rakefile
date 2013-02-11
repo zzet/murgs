@@ -1,21 +1,19 @@
+require "bundler/gem_tasks"
+
 require 'rake/clean'
-require 'rubygems'
-require 'rubygems/package_task'
 require 'rdoc/task'
 require 'cucumber'
 require 'cucumber/rake/task'
+
 Rake::RDocTask.new do |rd|
   rd.main = "README.rdoc"
   rd.rdoc_files.include("README.rdoc","lib/**/*.rb","bin/**/*")
-  rd.title = 'Your application title'
+  rd.title = 'Multi-User git server on Ruby'
 end
 
-spec = eval(File.read('murgs.gemspec'))
-
-Gem::PackageTask.new(spec) do |pkg|
-end
 CUKE_RESULTS = 'results.html'
 CLEAN << CUKE_RESULTS
+
 desc 'Run features'
 Cucumber::Rake::Task.new(:features) do |t|
   opts = "features --format html -o #{CUKE_RESULTS} --format progress -x"
@@ -35,7 +33,9 @@ end
 task :cucumber => :features
 task 'cucumber:wip' => 'features:wip'
 task :wip => 'features:wip'
+
 require 'rake/testtask'
+
 Rake::TestTask.new do |t|
   t.libs << "test"
   t.test_files = FileList['test/*_test.rb']
