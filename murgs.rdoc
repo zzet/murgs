@@ -1,0 +1,5 @@
+= murgs
+
+Generate this with
+    murgs rdoc
+After you have described your command line interface

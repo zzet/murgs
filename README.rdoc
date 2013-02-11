@@ -1,0 +1,6 @@
+= murgs
+
+Multi user ruby git server
+
+:include:murgs.rdoc
+
