@@ -25,6 +25,15 @@ command :install do |c|
   c.arg_name 'Key storage'
   c.flag [:t,'storage-type']
 
+  c.desc 'Repository path'
+  c.default_value '/var/git/repositories'
+  c.arg_name 'Key storage'
+  c.flag [:r,'repository-path']
+
+  c.desc 'Config file'
+  c.default_value '/var/git/murgs.yml'
+  c.arg_name 'Config'
+  c.flag [:c,'config']
 
   c.action do |global_options,options,args|
 
